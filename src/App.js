@@ -1,23 +1,22 @@
 import React, { Component } from 'react';
-
+import TodoItems from './Component/Todoitem/Todoitem';
+import AddItem from './Component/Additem/Additem';
 class App extends Component {
+
+  state = {
+    items: [
+      { id: 1, name: 'ounissi', age: 22 },
+      { id: 1, name: 'takieddine', age: 22 },
+      { id: 1, name: 'azzou', age: 22 },
+
+    ]
+  }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        do list App
+        <TodoItems items={this.State.items} />
+        <AddItem />
       </div>
     );
   }
