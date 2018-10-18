@@ -6,16 +6,23 @@ class App extends Component {
   state = {
     items: [
       { id: 1, name: 'ounissi', age: 22 },
-      { id: 1, name: 'takieddine', age: 22 },
-      { id: 1, name: 'azzou', age: 22 },
+      { id: 2, name: 'takieddine', age: 22 },
+      { id: 3, name: 'azzou', age: 22 },
 
     ]
+  }
+
+  deleteItem = (id) => {
+    let items = this.state.items;
+    let i = items.findIndex(item => item.id === id)
+    items.splice(i, 1)
+    this.setState({ items })
   }
   render() {
     return (
       <div className="App">
         do list App
-        <TodoItems items={this.State.items} />
+        <TodoItems items={this.state.items} deleteItem={this.deleteItem} />
         <AddItem />
       </div>
     );
@@ -23,3 +30,4 @@ class App extends Component {
 }
 
 export default App;
+//video 3
