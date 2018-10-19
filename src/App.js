@@ -13,10 +13,17 @@ class App extends Component {
   }
 
   deleteItem = (id) => {
-    let items = this.state.items;
+    //other function how delete item
+    let items = this.state.items.filter(item => {
+      return item.id !== id
+    })
+    this.setState({ items })
+    console.log(items)
+    // funtion how delete items is react js
+    /* let items = this.state.items;
     let i = items.findIndex(item => item.id === id)
     items.splice(i, 1)
-    this.setState({ items })
+    this.setState({ items }) */
   }
   render() {
     return (
@@ -30,4 +37,4 @@ class App extends Component {
 }
 
 export default App;
-//video 3
+//video 5
