@@ -18,7 +18,6 @@ class App extends Component {
       return item.id !== id
     })
     this.setState({ items })
-    console.log(items)
     // funtion how delete items is react js
     /* let items = this.state.items;
     let i = items.findIndex(item => item.id === id)
