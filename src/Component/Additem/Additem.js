@@ -15,8 +15,16 @@ class AddItem extends Component {
     }
 
     handleSubmit = (e) => {
-        e.preventdefault();
-        console.log(this.state)
+        e.preventDefault();
+        if (e.target.name.value === '') {
+            return false
+        } else {
+            this.props.addItem(this.state)
+            this.setState({
+                name: '',
+                age: ''
+            })
+        }
     }
 
 
@@ -24,8 +32,8 @@ class AddItem extends Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <input type='text' placeholder='Entre name ....' id='name' onChange={this.handleChange} />
-                    <input type='number' placeholder='Entre age ....' id='age' onChange={this.handleChange} />
+                    <input type='text' placeholder='Entre name ....' id='name' onChange={this.handleChange} value={this.state.name} />
+                    <input type='number' placeholder='Entre age ....' id='age' onChange={this.handleChange} value={this.state.age} />
                     <input type='submit' value='ADD' />
                 </form>
             </div>

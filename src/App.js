@@ -5,9 +5,7 @@ class App extends Component {
 
   state = {
     items: [
-      { id: 1, name: 'ounissi', age: 22 },
-      { id: 2, name: 'takieddine', age: 22 },
-      { id: 3, name: 'azzou', age: 22 },
+      { id: 1, name: 'Test', age: 'Test' },
 
     ]
   }
@@ -24,12 +22,18 @@ class App extends Component {
     items.splice(i, 1)
     this.setState({ items }) */
   }
+  addItem = (item) => {
+    item.id = Math.random();
+    let items = this.state.items;
+    items.push(item);
+    this.setState({ items })
+  }
   render() {
     return (
-      <div className="App">
-        do list App
+      <div className="App container">
+        <h1 className='text-center'>Todo List</h1>
         <TodoItems items={this.state.items} deleteItem={this.deleteItem} />
-        <AddItem />
+        <AddItem addItem={this.addItem} />
       </div>
     );
   }
